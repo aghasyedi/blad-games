@@ -1,5 +1,7 @@
 # Quantum Arcade
 
+**🎮 [Play all 40 games here!](https://bladgames.netlify.app/)**
+
 Forty playable quantum games - chess, battleship, ludo, carrom, cricket and more - in a hand-drawn neon brutalist arcade. Pure HTML, CSS and JavaScript. Every piece is in two places at once until you measure it.
 
 ## The Games
