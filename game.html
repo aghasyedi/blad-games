@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-page-node-id="BHSnKaGvhaOZ4HRODhtRnp">
+<head data-page-node-id="l6CYKIdu0DJPzI2L9PlQHE">
+<meta charset="utf-8" data-page-node-id="PZFhg7bzdRDmT2EOnvwmgj">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" data-page-node-id="Lq5BeSurQFY0ejbIB6ur9Y">
+<meta name="theme-color" content="#fffdf4" data-page-node-id="1YN3y4pTdbbXfeVYPIuyM3">
+<title>Playing - Quantum Arcade</title>
+<meta name="author" content="Agha Tasheer Syedi">
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="2wCPRuxAhCuzYPETBBVotL">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="64qkrn2JmxASLi2URJUFC8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet" data-page-node-id="2oDOdCWwPWMOHkXiFLWxNh">
+<link rel="stylesheet" href="css/theme.css" data-page-node-id="G3ND7QQBpaHyCFEta8yK8J">
+<link rel="stylesheet" href="css/game.css" data-page-node-id="osQur3dcy1ooqsik4C83Y3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23c6ff00' stroke='%230d0d12' stroke-width='8'/%3E%3Ctext x='50' y='72' font-size='58' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%230d0d12'%3E%E2%9A%9B%3C/text%3E%3C/svg%3E" data-page-node-id="UlWCSgz9By3W8nVosWZmp8">
+</head>
+<body class="gamepage" data-page-node-id="NsyGPamACKNde7LdFrUaEe">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false" data-page-node-id="oQmLVPm1NrH0K6Os3J4hVC">
+  <defs data-page-node-id="eC3FKlWI8cEfOrU5vEr7yn">
+    <filter id="rough" data-page-node-id="i1hB6k25oymn7ri0PAGCvC">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.028" numOctaves="3" seed="7" result="n" data-page-node-id="0uaeWJgOR5pG7Ll1jWPuZn"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G" data-page-node-id="169bRBldF2yYdECuZ6V200"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="gnav" id="gnav" data-page-node-id="BMMswjU2zEr5GOEMXLs0r7">
+  <div class="wrap gnav__in" data-page-node-id="uRnDFmsMQPD4uMqX9oFfaM">
+    <a class="btn btn--ghost btn--sm" href="index.html" aria-label="Back to all games" data-page-node-id="K9T08p6Fe6CupTDVOEbso1">&#9664; HOME</a>
+    <div class="gnav__title" data-page-node-id="S1wrNJbFwrANAsKvHYjiWb">
+      <span class="gnav__emoji" id="gEmoji" aria-hidden="true" data-page-node-id="no4NN4W9QAndVE62PBTpUy">&#9883;</span>
+      <span style="min-width:0" data-page-node-id="z7wHEAVaFe5Mx5SHajxWTM">
+        <span class="gnav__num" id="gNum" data-page-node-id="JIXUnSyANSJqUYB3Xa2q5y">Game</span>
+        <h1 id="gName" data-page-node-id="UkWGz44gQ8pMM6k6mSbenn">Loading...</h1>
+      </span>
+    </div>
+    <button class="btn btn--ghost themebtn" id="themeBtn" type="button" aria-label="Toggle theme" title="Toggle theme" data-page-node-id="p9ymqgAjNm2dCXeaeaMLW3">&#9682;</button>
+    <button class="btn btn--ghost themebtn" id="soundBtn" type="button" aria-label="Toggle sound" title="Toggle sound" data-page-node-id="npXtojJVj3I5ebVX56qxTe">&#128266;</button>
+  </div>
+</header>
+
+<main class="wrap gwrap" data-page-node-id="zwhFndcC8AoLaNDy1G1gcr">
+  <section class="gmain" data-page-node-id="zohp4ejNNJGFY3z1nhwhIQ">
+    <div class="statusbar" data-page-node-id="h6xkEDP4vcILzGOrn0h61a">
+      <span class="statusbar__dot" id="gDot" data-page-node-id="0jIJOqaYlXR1HYwZGuulJh"></span>
+      <span class="statusbar__text" id="gStatus" data-page-node-id="boXErWYq6uvQ4nsCICsvs2">Ready.</span>
+      <div class="scores" id="gScores" data-page-node-id="RqGAEQEDFgejuajGyW1A7v"></div>
+    </div>
+
+    <div class="stage" id="stage" aria-live="polite" data-page-node-id="No5BhiW9C8FZOhWyvWuc8T"></div>
+
+    <div class="gpanel" id="logPanel" hidden data-page-node-id="Nmq7plBvS3nJ0bR8Q258ND">
+      <h3 style="margin-bottom:8px" data-page-node-id="yCK3GP7PtlEP6XrRh1N0uK">MOVE LOG</h3>
+      <div class="glog" id="gLog" data-page-node-id="FjXyW0PbaX5eEjQx4MWHHI"></div>
+    </div>
+  </section>
+
+  <aside class="gside" data-page-node-id="1zVjU7cVzEqeUY9ZR0Dy6D">
+    <details class="gpanel" id="instrPanel" open data-page-node-id="csxeVeCIcdlVcr26F0zUh1">
+      <summary data-page-node-id="mFLrEeKTOFIz0a7xDDNECV">HOW TO PLAY</summary>
+      <ol class="instr" id="gInstr" data-page-node-id="6wCbAcFBTEjcuEzA73zlHl"></ol>
+      <div class="controls-note" id="gCtrl" data-page-node-id="VNJxe96wSIqxOrTdHH7WOl"></div>
+    </details>
+
+    <div class="gpanel" data-page-node-id="sLoeAI5gAHz96dgL67TqnD">
+      <h3 style="margin-bottom:10px" data-page-node-id="gFoHCEPimzsAvRmlGxmJz0">CONTROLS</h3>
+      <div class="gactions" data-page-node-id="UlWiXvSb0GHjRPpmLI6I0g">
+        <button class="btn btn--lime" id="btnRestart" type="button" data-page-node-id="olL0LJsgvQM3VtqghAciqF">&#8635; Restart</button>
+        <button class="btn btn--ghost" id="btnHelp" type="button" data-page-node-id="fapOZG1vlZHItZ7B8PAMD6">&#63; Rules</button>
+      </div>
+      <div class="controls-note mt12" id="gBest" data-page-node-id="boku1gbhU2hC5Uk7HlMDyT">Best: -</div>
+    </div>
+
+    <div class="gpanel" data-page-node-id="FTi88PVGNdFhVfEFxJfEo1">
+      <h3 style="margin-bottom:10px" data-page-node-id="nFivQBKJCN9a1Y79GyVYze">MORE GAMES</h3>
+      <div class="col gap8" id="moreGames" data-page-node-id="jrwPqgzfJS2QiC4wje4Jqt"></div>
+    </div>
+
+    <div class="gpanel gcredit">
+      <div class="hud__k">Designed &amp; built by</div>
+      <a class="gcredit__name" href="https://www.linkedin.com/in/aghasyedi/" target="_blank" rel="noopener noreferrer">Agha Tasheer Syedi</a>
+      <div class="gcredit__role">Quantum Arcade &mdash; HTML, CSS &amp; JS</div>
+      <a class="btn btn--blue btn--sm btn--block mt8" href="https://www.linkedin.com/in/aghasyedi/" target="_blank" rel="noopener noreferrer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21H9V9z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </aside>
+</main>
+
+<script src="js/quantum.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/registry.js"></script>
+<!-- game packs are loaded on demand by shell.js - only the pack that owns
+     the requested game is fetched, so the first paint stays fast -->
+<script src="js/shell.js"></script>
+</body>
+</html>

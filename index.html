@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fffdf4">
+<title>Quantum Arcade - 40 Neon Brutalist Quantum Games</title>
+<meta name="description" content="40 playable quantum games - chess, battleship, ludo, carrom, cricket and more - in a hand-drawn neon brutalist arcade. Pure HTML, CSS and JavaScript.">
+<meta name="author" content="Agha Tasheer Syedi">
+<meta name="keywords" content="quantum games, browser games, neo brutalism, hand-drawn, html css javascript, chess, ludo, carrom, kabaddi, carrom board">
+<meta property="og:title" content="Quantum Arcade - 40 Neon Brutalist Quantum Games">
+<meta property="og:description" content="Forty classic games rebuilt so every piece is in two places at once until you measure it.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/mascot.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2300e5ff' stroke='%230d0d12' stroke-width='8'/%3E%3Ctext x='50' y='72' font-size='62' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%230d0d12'%3E%E2%9A%9B%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- rough / hand-drawn displacement filter used by the doodles -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.028" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="rough2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.02" numOctaves="2" seed="19" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html" aria-label="Quantum Arcade home">
+      <span class="brand__mark" aria-hidden="true">&#9873;</span>
+      <span class="brand__txt">
+        <span class="brand__name">QUANTUM&nbsp;ARCADE</span>
+        <span class="brand__sub">40 games, superposed.</span>
+      </span>
+    </a>
+    <nav class="nav__links">
+      <a class="btn btn--lime btn--sm btn--hide-sm" href="#games">All 40 Games</a>
+      <a class="btn btn--ghost btn--sm btn--hide-sm" href="#about">How it works</a>
+      <button class="btn btn--ghost themebtn" id="themeBtn" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">&#9682;</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO (parallax) ================= -->
+<section class="hero" id="top">
+  <!-- layer: blobs -->
+  <div class="hero__layer hero__blobs" data-depth="0.05" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+  </div>
+
+  <!-- layer: halftone + rings -->
+  <div class="hero__layer hero__dots" data-depth="0.11" aria-hidden="true">
+    <i class="dots-a"></i><i class="dots-b"></i>
+  </div>
+  <div class="hero__layer hero__rings" data-depth="0.17" aria-hidden="true">
+    <span class="ring ring--1"></span><span class="ring ring--2"></span>
+  </div>
+
+  <!-- layer: hand-drawn doodles -->
+  <div class="hero__layer hero__doodles" data-depth="0.46" aria-hidden="true">
+    <div class="doodle doodle--orbital">
+      <svg viewBox="0 0 120 120" fill="none" style="filter:url(#rough)">
+        <ellipse cx="60" cy="60" rx="52" ry="19" stroke="var(--ink)" stroke-width="4"/>
+        <ellipse cx="60" cy="60" rx="52" ry="19" stroke="var(--ink)" stroke-width="4" transform="rotate(60 60 60)"/>
+        <ellipse cx="60" cy="60" rx="52" ry="19" stroke="var(--ink)" stroke-width="4" transform="rotate(120 60 60)"/>
+        <circle cx="60" cy="60" r="13" fill="var(--magenta)" stroke="var(--ink)" stroke-width="4"/>
+        <circle cx="112" cy="60" r="7.5" fill="var(--cyan)" stroke="var(--ink)" stroke-width="4"/>
+        <circle cx="34" cy="105" r="6" fill="var(--lime)" stroke="var(--ink)" stroke-width="4"/>
+      </svg>
+    </div>
+
+    <div class="doodle doodle--atom">
+      <svg viewBox="0 0 120 120" fill="none" style="filter:url(#rough2)">
+        <path d="M14 96 C 22 40, 52 10, 106 22" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M22 106 C 40 62, 78 44, 108 62" stroke="var(--purple)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="11 8"/>
+        <circle cx="14" cy="96" r="9" fill="var(--yellow)" stroke="var(--ink)" stroke-width="4"/>
+        <circle cx="106" cy="22" r="7" fill="var(--cyan)" stroke="var(--ink)" stroke-width="4"/>
+        <circle cx="108" cy="62" r="6" fill="var(--magenta)" stroke="var(--ink)" stroke-width="4"/>
+      </svg>
+    </div>
+
+    <div class="doodle doodle--die">
+      <svg viewBox="0 0 100 100" fill="none" style="filter:url(#rough)">
+        <rect x="10" y="10" width="80" height="80" rx="14" fill="var(--yellow)" stroke="var(--ink)" stroke-width="5"/>
+        <circle cx="34" cy="34" r="8" fill="var(--ink)"/>
+        <circle cx="66" cy="66" r="8" fill="var(--ink)"/>
+        <circle cx="50" cy="50" r="8" fill="var(--magenta)" stroke="var(--ink)" stroke-width="3"/>
+      </svg>
+    </div>
+
+    <div class="doodle doodle--psi">
+      <svg viewBox="0 0 130 80" fill="none" style="filter:url(#rough2)">
+        <path d="M6 42 C 22 4, 32 76, 48 42 S 74 6, 90 42 S 116 74, 126 40" stroke="var(--cyan)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M6 42 L 126 42" stroke="var(--ink)" stroke-width="3" stroke-dasharray="6 7"/>
+      </svg>
+    </div>
+
+    <div class="doodle doodle--spiral">
+      <svg viewBox="0 0 110 110" fill="none" style="filter:url(#rough)">
+        <path d="M55 55 m0 -6 a6 6 0 1 1 -6 6 a12 12 0 1 1 12 -12 a20 20 0 1 1 -20 20 a30 30 0 1 1 30 -30 a42 42 0 1 1 -42 42" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="55" cy="55" r="4" fill="var(--orange)" stroke="var(--ink)" stroke-width="3"/>
+      </svg>
+    </div>
+
+    <div class="doodle doodle--star">
+      <svg viewBox="0 0 60 60" fill="none">
+        <path d="M30 4 L37 22 L56 22 L41 34 L47 53 L30 41 L13 53 L19 34 L4 22 L23 22 Z" fill="var(--lime)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="doodle doodle--arrow">
+      <svg viewBox="0 0 140 70" fill="none" style="filter:url(#rough2)">
+        <path d="M6 58 C 40 52, 66 34, 96 20" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+        <path d="M74 14 L 100 18 L 88 40" stroke="var(--ink)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- hero content -->
+  <div class="wrap">
+    <div class="hero__content" data-depth="0.16">
+      <span class="hero__kicker">&#9883; Superposition &bull; Entanglement &bull; Measurement</span>
+      <h1 class="hero__title">
+        <span class="l1">QUANTUM</span>
+        <span class="l2">
+          <span class="neon">ARCADE</span>
+        </span>
+        <span class="l2 stroke">40 GAMES</span>
+      </h1>
+      <p class="hero__lead">
+        Forty classic games - chess, ludo, carrom, cricket, kabaddi, tetris, pong -
+        rebuilt so every piece is in two places at once until you
+        <span class="scribble">measure it<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M5 13 C 42 4, 74 18, 112 10 S 182 2, 222 13 S 282 18, 295 8"/></svg></span>.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--magenta" href="#games">&#9654; Play all 40 games</a>
+        <button class="btn btn--cyan" id="randomBtn" type="button">&#9860; Surprise me</button>
+        <a class="btn btn--ghost" href="#about">How it works</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat__n" id="statGames">40</div><div class="stat__l">Games</div></div>
+        <div class="stat"><div class="stat__n">7</div><div class="stat__l">Categories</div></div>
+        <div class="stat"><div class="stat__n">0</div><div class="stat__l">Frameworks</div></div>
+        <div class="stat"><div class="stat__n">&#8734;</div><div class="stat__l">Superpositions</div></div>
+      </div>
+
+      <div class="scrollcue">
+        <span>scroll for the whole arcade</span>
+        <svg width="26" height="34" viewBox="0 0 26 34" fill="none"><path d="M13 3 L13 27 M5 20 L13 30 L21 20" stroke="var(--ink)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="hero__wave">
+      <canvas id="wave" aria-hidden="true"></canvas>
+      <div class="mascots" id="mascots"></div>
+    </div>
+    <div class="mascot-hint">
+      <span class="hand">&#9757; these three live in the wave. whatever you do, <b>do not tease them</b> &mdash; you get twelve seconds, then he takes the whole arcade apart and leaves you one game.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Superposition</span><span>&#10022;</span><span>Entanglement</span><span>&#10022;</span>
+    <span>Interference</span><span>&#10022;</span><span>Measurement</span><span>&#10022;</span>
+    <span>Hand-drawn neon brutalism</span><span>&#10022;</span><span>No frameworks</span><span>&#10022;</span>
+    <span>Superposition</span><span>&#10022;</span><span>Entanglement</span><span>&#10022;</span>
+    <span>Interference</span><span>&#10022;</span><span>Measurement</span><span>&#10022;</span>
+    <span>Hand-drawn neon brutalism</span><span>&#10022;</span><span>No frameworks</span><span>&#10022;</span>
+  </div>
+</div>
+
+<!-- ================= GAMES ================= -->
+<section class="section" id="games">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="sechead__row">
+        <span class="sechead__no">pick one &#8594;</span>
+        <h2>THE&nbsp;ARCADE</h2>
+      </div>
+      <p>Every card opens a fully playable game. Same quantum rules, forty different classics.</p>
+    </div>
+
+    <div class="toolbar">
+      <input class="input toolbar__search" id="search" type="search" placeholder="Search games... (chess, ludo, cricket)" aria-label="Search games" autocomplete="off">
+      <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+      <button class="btn btn--ghost btn--sm" id="sortBtn" type="button" title="Change sort order">&#8645; A-Z</button>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="sechead__row">
+        <span class="sechead__no">the rules of the arcade</span>
+        <h2>HOW&nbsp;IT&nbsp;WORKS</h2>
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature__ico bg-cyan">&#9883;</div>
+        <h3>Superposition</h3>
+        <p>Pieces, ships, dice and cards sit in two or more places at once. The board shows you every possibility as a ghost - only one of them is real.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__ico bg-magenta">&#128279;</div>
+        <h3>Entanglement</h3>
+        <p>Linked pieces move together. Touch one and its partner collapses too, which is either a gift or a disaster depending on where you left it.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__ico bg-lime">&#128225;</div>
+        <h3>Interference</h3>
+        <p>Some zones amplify your probability and some cancel it out. Route through the bright ones and your odds double.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__ico bg-purple">&#128301;</div>
+        <h3>Measurement</h3>
+        <p>Measuring collapses the uncertainty into one definite answer. It is powerful, it is free, and it always hands information to the other player.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__ico bg-yellow">&#128241;</div>
+        <h3>Built for phones</h3>
+        <p>Tap and swipe everywhere, 44px touch targets, no hover-only actions, DPR-aware canvases, and it remembers your progress between visits.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__ico bg-orange">&#128296;</div>
+        <h3>Zero dependencies</h3>
+        <p>Plain HTML, CSS and JavaScript. No build step, no frameworks, no server. Open index.html and the whole arcade runs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__in">
+      <div>
+        <div class="brand__name">QUANTUM&nbsp;ARCADE</div>
+        <div class="foot__note">Forty games. One wavefunction.</div>
+      </div>
+      <div class="foot__made">HTML &bull; CSS &bull; JS &bull; no dependencies</div>
+    </div>
+
+    <div class="dev mt16">
+      <span class="dev__avatar" aria-hidden="true">ATS</span>
+      <div class="dev__meta">
+        <span class="dev__label">Designed &amp; built by</span>
+        <a class="dev__name" href="https://www.linkedin.com/in/aghasyedi/" target="_blank" rel="noopener noreferrer">Agha Tasheer Syedi</a>
+      </div>
+      <div class="dev__links">
+        <a class="btn btn--blue btn--sm" href="https://www.linkedin.com/in/aghasyedi/" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21H9V9z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn--ghost btn--sm" href="#games">&#9654; Play the arcade</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/quantum.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/registry.js"></script>
+<script src="js/home.js"></script>
+<script src="js/mascot.js"></script>
+</body>
+</html>
